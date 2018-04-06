@@ -7,9 +7,19 @@ How two repoduce analysis of [state-of-the-art long-read overlapping tools compa
 
 # Requirement
 
+## Analysis tools
+
 - matplotlib
 - begins
 - BioPython
+
+## Overlapper
+
+- mhap (1.6 and 2.1)
+- minimap
+- minimap2
+- HISEA
+- graphmap
 
 # Dataset
 
