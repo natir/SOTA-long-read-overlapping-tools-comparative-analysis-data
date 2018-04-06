@@ -3,7 +3,7 @@ How two repoduce analysis of [state-of-the-art long-read overlapping tools compa
 
 # Acknowledgment
 
-- @tctianchi for [pyvenn](https://github.com/tctianchi/pyvenn) script 
+- [tctianchi](https://github.com/tctianchi) for [pyvenn](https://github.com/tctianchi/pyvenn) script 
 
 # Requirement
 
