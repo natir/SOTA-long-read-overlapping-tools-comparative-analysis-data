@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-from sys import intern
-
 import pickle
 import itertools
 
@@ -11,13 +9,6 @@ import begin
 
 from enum import Enum
 from types import SimpleNamespace
-
-import matplotlib as mpl
-mpl.use('Agg')
-import matplotlib.pyplot as plt
-plt.style.use("dark_background")
-import venn
-
 
 def __compute_overhang(strand, len_a, beg_a, end_a, len_b, beg_b, end_b):
     if strand == "+":
@@ -129,34 +120,16 @@ def rename_name(label):
         return label
 
 @begin.start
-def main(out_prefix, *file_list):
-
-    select = "1101"
-    n = 10
-    
-    if len(file_list) == 2:
-        venn_generator = venn.venn2
-    elif len(file_list) == 3:
-        venn_generator = venn.venn3
-    elif len(file_list) == 4:
-        venn_generator = venn.venn4
-    elif len(file_list) == 5:
-        venn_generator = venn.venn5
-    elif len(file_list) == 6:
-        venn_generator = venn.venn6
-    else:
-        print("Error we just support ensembl between 2 and 6 value")
-        return -1
+def main(*file_list):
 
     pool = multiprocessing.Pool(len(file_list))
     result = pool.map_async(read_overlap, file_list)
     file2set = {k: v for k, v in result.get()}
 
-    labels, s = venn.get_labels(list(file2set.values()), select=select, n=n)
-   
     for (key_a, val_a), (key_b, val_b) in itertools.combinations(file2set.items(), 2):
         print(key_a, key_b, len(val_a & val_b)/len(val_a | val_b))
 
-    fig, ax = venn_generator(labels, names=[rename_name(name) for name in file2set.keys()])
-    fig.savefig(out_prefix)
+    for intersection_size in range(1, len(file2set) + 1):
+        for sets in itertools.combinations(file2set.items(), intersection_size):
 
+            print([s[0] for s in sets], len(set.intersection(*[s[1] for s in sets])))

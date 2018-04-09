@@ -1,15 +1,10 @@
 
 How two repoduce analysis of [state-of-the-art long-read overlapping tools comparative analysis](http://blog.pierre.marijon.fr/2018/04/04/State-of-the-art-long-reads-overlaper-compare.html)
 
-# Acknowledgment
-
-- [tctianchi](https://github.com/tctianchi) for [pyvenn](https://github.com/tctianchi/pyvenn) script 
-
 # Requirement
 
 ## Analysis tools
 
-- matplotlib
 - begins
 - BioPython
 
