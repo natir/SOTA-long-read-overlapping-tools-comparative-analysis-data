@@ -15,7 +15,6 @@ from types import SimpleNamespace
 import matplotlib as mpl
 mpl.use('Agg')
 import matplotlib.pyplot as plt
-plt.style.use("dark_background")
 import venn
 
 
@@ -152,7 +151,7 @@ def main(out_prefix, *file_list):
     result = pool.map_async(read_overlap, file_list)
     file2set = {k: v for k, v in result.get()}
 
-    labels, s = venn.get_labels(list(file2set.values()), select=select, n=n)
+    labels = venn.get_labels(list(file2set.values()))
    
     for (key_a, val_a), (key_b, val_b) in itertools.combinations(file2set.items(), 2):
         print(key_a, key_b, len(val_a & val_b)/len(val_a | val_b))
