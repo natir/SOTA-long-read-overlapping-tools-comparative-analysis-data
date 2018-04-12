@@ -97,7 +97,7 @@ cd synthetic
 graphmap owler -r e_coli_nanopore/merged.fasta -d e_coli_nanopore/merged.fasta -o graphmap_nanopore.mhap
 hisea --ref e_coli_nanopore/merged.fasta --self --threads 10 > hisea_nanopore.hisea
 mhap1.6 -Xmx128g --num-threads 15 -s e_coli_nanopore/merged.fasta -k 14 --num-hashes 4844 --num-min-matches 3 --threshold 0.04 > mhap_nanopore.mhap
-mhap2.1 -Xmx128g --num-threads 15 -s e_coli_pacbio/merged.fasta -k 14 --num-hashes 4844 --num-min-matches 3 > mhap_pacbio.mhap
+mhap2.1 -Xmx128g --num-threads 15 -s e_coli_pacbio/merged.fasta -k 14 --num-hashes 4844 --num-min-matches 3 --threshold 0.78 > mhap_pacbio.mhap
 minimap -x ava10k -k 14 e_coli_nanopore/merged.fasta e_coli_nanopore/merged.fasta > minimap_nanopore.paf
 minimap2 -x ava-ont -k 14 e_coli_nanopore/merged.fasta e_coli_nanopore/merged.fasta > minimap2_nanopore.paf
 ```
@@ -108,7 +108,7 @@ minimap2 -x ava-ont -k 14 e_coli_nanopore/merged.fasta e_coli_nanopore/merged.fa
 graphmap owler -r e_coli_pacbio/merged.fasta -d e_coli_pacbio/merged.fasta -o graphmap_pacbio.mhap
 hisea --ref e_coli_pacbio/merged.fasta --self --threads 10 > hisea_pacbio.hisea
 mhap1.6 -Xmx128g --num-threads 15 -s e_coli_pacbio/merged.fasta -k 14 --num-hashes 4844 --num-min-matches 3 --threshold 0.02 > mhap_pacbio.mhap
-mhap2.1 -Xmx128g --num-threads 15 -s e_coli_pacbio/merged.fasta -k 14 --num-hashes 4844 --num-min-matches 3 > mhap_pacbio.mhap
+mhap2.1 -Xmx128g --num-threads 15 -s e_coli_pacbio/merged.fasta -k 14 --num-hashes 4844 --num-min-matches 3 --threshold 0.75 > mhap_pacbio.mhap
 minimap -x ava10k -k 14 e_coli_pacbio/merged.fasta e_coli_pacbio/merged.fasta > minimap_pacbio.paf
 minimap2 -x ava-pb -k 14 e_coli_pacbio/merged.fasta e_coli_pacbio/merged.fasta > minimap2_pacbio.paf
 ```
@@ -119,7 +119,7 @@ minimap2 -x ava-pb -k 14 e_coli_pacbio/merged.fasta e_coli_pacbio/merged.fasta >
 graphmap owler -r synthetic/merged.fasta -d synthetic/merged.fasta -o graphmap_synthetic.mhap
 hisea --ref synthetic/merged.fasta --self --threads 10 > hisea_synthetic.hisea
 mhap1.6 -Xmx128g --num-threads 15 -s synthetic/merged.fasta -k 14 --num-hashes 4844 --num-min-matches 3 --threshold 0.02 > mhap_synthetic.mhap
-mhap2.1 -Xmx128g --num-threads 15 -s synthetic/merged.fasta -k 14 --num-hashes 4844 --num-min-matches 3 --threshold 0.98 > mhap_synthetic.mhap
+mhap2.1 -Xmx128g --num-threads 15 -s synthetic/merged.fasta -k 14 --num-hashes 4844 --num-min-matches 3 --threshold 0.75 > mhap_synthetic.mhap
 minimap -x ava10k -k 14 synthetic/merged.fasta synthetic/merged.fasta > minimap_synthetic.paf
 minimap2 -x ava-ont -k 14 synthetic/merged.fasta synthetic/merged.fasta > minimap2_synthetic.paf
 ```
